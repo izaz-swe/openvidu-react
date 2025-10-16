@@ -1,0 +1,42 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { useIsRecording } from '@livekit/components-react';
+import toast from 'react-hot-toast';
+
+export function RecordingIndicator() {
+  const isRecording = useIsRecording();
+  const [wasRecording, setWasRecording] = useState(false);
+
+  useEffect(() => {
+    if (isRecording !== wasRecording) {
+      setWasRecording(isRecording);
+      if (isRecording) {
+        toast('This meeting is being recorded', {
+          duration: 3000,
+          icon: '🎥',
+          position: 'top-center',
+          className: 'lk-button',
+          style: {
+            backgroundColor: 'var(--lk-danger3)',
+            color: 'var(--lk-fg)',
+          },
+        });
+      }
+    }
+  }, [isRecording, wasRecording]);
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        boxShadow: isRecording ? 'var(--lk-danger3) 0px 0px 0px 3px inset' : 'none',
+        pointerEvents: 'none',
+      }}
+    ></div>
+  );
+}

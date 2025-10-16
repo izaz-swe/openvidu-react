@@ -1,0 +1,22 @@
+/* Base styles for all autofill states */
+.MuiTextField-root input:-webkit-autofill,
+.MuiTextField-root input:-webkit-autofill:hover, 
+.MuiTextField-root input:-webkit-autofill:focus, 
+.MuiTextField-root input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px white inset !important;
+    box-shadow: 0 0 0 100px white inset !important;
+    -webkit-text-fill-color: #333 !important;
+    background-color: white !important;
+}
+
+/* Focus state specific styles */
+/* .MuiTextField-root input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 100px #f5f5f5 inset, 0 0 0 2px #0052A8 !important;
+    box-shadow: 0 0 0 100px #f5f5f5 inset, 0 0 0 2px #0052A8 !important;
+} */
+
+/* Error state handling */
+.MuiTextField-root.Mui-error input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px #f5f5f5 inset !important;
+    box-shadow: 0 0 0 100px #f5f5f5 inset !important;
+}
